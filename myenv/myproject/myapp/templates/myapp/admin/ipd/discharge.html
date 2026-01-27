@@ -1,0 +1,26 @@
+{% extends 'myapp/admin/admin_dashboard.html' %}
+{% block content %}
+<div id="page-content-wrapper">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+        <div class="d-flex align-items-center">
+            <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+            <h2 class="fs-2 m-0">Confirm Discharge</h2>
+        </div>
+    </nav>
+    <div class="container-fluid px-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3>Discharge Patient: {{ admission.patient.name }}</h3>
+                <p><strong>Admission Date:</strong> {{ admission.admission_date }}</p>
+                <p><strong>Doctor:</strong> {{ admission.doctor.name }}</p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <p class="text-danger">Are you sure you want to discharge this patient?</p>
+                    <button type="submit" class="btn btn-danger">Confirm Discharge</button>
+                    <a href="{% url 'ipd_list' %}" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,13 +1,21 @@
 # Virtual Environments
 .venv/
-myenv/
 env/
 venv/
+
+# Specific ignores for myenv (since it contains project code)
+myenv/Lib/
+myenv/Scripts/
+myenv/pyvenv.cfg
+myenv/CACHEDIR.TAG
+myenv/.gitignore
+
 
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
+
 
 # Helper Files
 .vscode/
