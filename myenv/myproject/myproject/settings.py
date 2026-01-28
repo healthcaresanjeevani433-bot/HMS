@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-2v26lm%@9uxswzvz$$_rli%om3gm7jk88@0e1#)mb!)!s62gl)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -150,28 +150,3 @@ EMAIL_HOST_PASSWORD = 'gvvp teip evea szdr' # IMPORTANT: Must be a Google App Pa
 # Razorpay Settings
 RAZORPAY_KEY_ID = 'rzp_test_S7dpbztOktGIVm'  # Replace with actual Key ID
 RAZORPAY_KEY_SECRET = 'XaHcPLKom3sFyD5K9gwaBqaA'   # Replace with actual Key Secret
-
-import os
-import dj_database_url
-
-DEBUG = False
-
-ALLOWED_HOSTS = ['.onrender.com']
-
-INSTALLED_APPS = [
-    'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',
-]
-
-MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-]
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3'
-    )
-}
